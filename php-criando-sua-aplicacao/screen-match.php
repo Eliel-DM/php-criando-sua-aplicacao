@@ -3,15 +3,18 @@
 echo "Bem-vindo(a) ao screen match! \n";
 
 $nomeFilme = "Top Gun - Maverick";
-$anoLancamento = $argv[1] ?? 2022; // Solicita o valor via CLI, que caso não seja identificado envia o valor 2022. Anotado no caderno [ARGUMENTCOUNT] & [NULL COALESCING OPERATOR]
+$anoLancamento = 2022;
 $notaFilme = 8.8;
 $inclusoNoPlano = true;
 
+$quantidadeDeNotas = $argc - 1;
+$somaDeNotas = 0;
 
-$somaDeNotas = 9;
-$somaDeNotas += 7.5;
-$somaDeNotas += 6;
-$notaFilme = $somaDeNotas / 3;
+for ($contador = 1; $contador < $argc; $contador++) {
+    $somaDeNotas += $argv[$contador];
+}
+
+$notaFilme = $somaDeNotas / $quantidadeDeNotas;
 $planoPrime = true;
 
 $inclusoNoPlano = $planoPrime || $anoLancamento < 2020;
@@ -29,10 +32,12 @@ if ($anoLancamento > 2022) {
 }
 
 $genero = match ($nomeFilme) {
-    "Top Gun - Maverick" => "ação",
-    "Thor: Ragnarok" => "super-Herói",
-    "Se beber não case" => "comédia",
-    default => "Generô não identificado",
+    "Top Gun - Maverick" => "ação\n",
+    "Thor: Ragnarok" => "super-Herói\n",
+    "Se beber não case" => "comédia\n",
+    default => "Generô não identificado \n",
 };
 
 echo "O gênero do filme é: " . $genero;
+
+echo $argc;
