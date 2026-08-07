@@ -17,8 +17,11 @@ $saldo = 1000;
 
 
 while (true) {
-    echo "************************\n Titular: " . $titular . "\n Saldo: " . $saldo . "\n************************";
-    echo "\n1. Consultar Saldo Atual\n2. Sacar valor\n3. Depositar valor\n4. Sair\n************************\n";
+    echo "\n************************\n";
+    echo "Titular: $titular\n";
+    echo "Saldo: $saldo\n";
+    echo "\n************************\n";
+    echo "1. Consultar Saldo Atual\n2. Sacar valor\n3. Depositar valor\n4. Sair\n************************\n";
 
     $validador = fgets(STDIN);
 
@@ -52,6 +55,8 @@ while (true) {
         case $validador == 4:
             echo "Adeus!\n";
             exit(1);
+        default:
+            echo "Valor Inserido é inválido";
+            sleep(3);
     }
 }
-// Acredito que implemntar ess parte com orientação a objetos faça mais sentido na minha cabeça, mas, vou seguir com o que foi ensinado até agora.
