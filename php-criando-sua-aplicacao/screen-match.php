@@ -8,7 +8,9 @@ $notaFilme = 8.8;
 $inclusoNoPlano = true;
 
 $quantidadeDeNotas = $argc - 1;
-$somaDeNotas = 0;
+$notas = [];
+
+
 
 for ($contador = 1; $contador < $argc; $contador++) {
     $somaDeNotas += $argv[$contador];
@@ -40,4 +42,6 @@ $genero = match ($nomeFilme) {
 
 echo "O gênero do filme é: " . $genero;
 
-echo $argc;
+$notasParaOFilme = [10, 8, 9, 7.5, 6.8];
+
+var_dump($notasParaOFilme);

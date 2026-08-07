@@ -26,13 +26,28 @@ while (true) {
 
         case $validador == 1:
             echo "\n SALDO ATUAL:" . $saldo . "\n";
-            sleep(5);
+            sleep(3);
             break;
         case $validador == 2:
-            echo "Número 2 Selecionado\n";
+            echo "Insira o valor a ser sacado: ";
+            $valorASerSacado = (float) trim(fgets(STDIN)); // Aqui utilizei o TRIM para remover a quebra de linha do STDIN
+
+            if ($valorASerSacado > $saldo) {
+                echo "Saldo Insuficiente!";
+                sleep(3);
+            } else {
+                $saldo -= $valorASerSacado;
+                echo "Realizado o saque de: $valorASerSacado R$!\n";
+                sleep(3);
+            }
+
             break;
         case $validador == 3:
-            echo "Número 3 Selecionado\n";
+            echo "Insira o valor a ser depositado: ";
+            $valorASerDepositado = (float) trim(fgets(STDIN));
+            $saldo += $valorASerDepositado;
+            echo "Realizado o deposito de: $valorASerDepositado R$!\n";
+            sleep(3);
             break;
         case $validador == 4:
             echo "Adeus!\n";
